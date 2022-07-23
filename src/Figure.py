@@ -1,17 +1,17 @@
 class Figure:
-    pass
+    name = None
 
+    @property
+    # TODO: Нужно обозначить как абстрактный метод
+    def area(self):
+        return True
 
-class Page:
+    @property
+    # TODO: Нужно обозначить как абстрактный метод
+    def perimetr(self):
+        return True
 
-    def open(self):
-        print("Opened")
-
-
-new_page = Page()
-login_page = Page()
-
-new_page.open()
-login_page.open()
-
-print(new_page, login_page)
+    def add_area(self, figure):
+        if not isinstance(figure, Figure):
+            raise ValueError
+        return self.area + figure.area
