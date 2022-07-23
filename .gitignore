@@ -6,9 +6,6 @@ __pycache__/
 .DS_Store
 .vscode
 
-# C extensions
-*.so
-
 # Distribution / packaging
 .Python
 build/
