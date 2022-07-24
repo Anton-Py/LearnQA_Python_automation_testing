@@ -1,8 +1,4 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-.idea/
+
 .DS_Store
 .vscode
 
@@ -102,3 +98,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
