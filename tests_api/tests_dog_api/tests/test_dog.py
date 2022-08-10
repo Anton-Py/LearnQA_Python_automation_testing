@@ -6,6 +6,39 @@ from tests_api.tests_dog_api.lib.constants import Constants
 from tests_api.tests_dog_api.lib.my_requests import MyRequests
 
 
+def test_get_bred_hound_list(base_url):
+    url = base_url + "/breed/hound/list"
+    response = MyRequests.get(url)
+    Assertions.assert_code_status(response, Constants.EXPECTED_STATUS_CODE)
+
+    validate(instance=response.json(), schema=Constants.schema_for_bred_hound_list)
+
+
+def test_get_list_all_breed(base_url):
+    url = base_url + "/breed/hound/images"
+    response = MyRequests.get(url)
+    Assertions.assert_code_status(response, Constants.EXPECTED_STATUS_CODE)
+
+    validate(instance=response.json(), schema=Constants.schema_for_dog_by_breed)
+
+
+def test_get_list_all_breeds(base_url):
+    url = base_url + "/breeds/list/all"
+    response = MyRequests.get(url)
+    Assertions.assert_code_status(response, Constants.EXPECTED_STATUS_CODE)
+
+    validate(instance=response.json(), schema=Constants.schema_for_dog_list_all_breeds)
+
+
+@pytest.mark.parametrize("number", [2, 5, 6, 4])
+def test_get_list_all_breeds(base_url, number):
+    url = base_url + f"/breeds/image/random/{number}"
+    response = MyRequests.get(url)
+    Assertions.assert_code_status(response, Constants.EXPECTED_STATUS_CODE)
+
+    validate(instance=response.json(), schema=Constants.schema_for_dog_random_image)
+
+
 def get_list_all_breeds(base_url):
     url = base_url + "/breeds/list/all"
     response = MyRequests.get(url)
