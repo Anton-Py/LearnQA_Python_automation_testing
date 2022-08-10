@@ -1,6 +1,6 @@
 import requests
-from tests.tests_two_params.lib.assertions import Assertions
-from tests.tests_two_params.lib.my_requests import MyRequests
+from tests_api.tests_two_params.lib.assertions import Assertions
+from tests_api.tests_two_params.lib.my_requests import MyRequests
 
 
 def test_two_params(base_url, status_code):

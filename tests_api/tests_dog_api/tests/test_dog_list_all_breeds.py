@@ -1,7 +1,7 @@
 from jsonschema import validate
-from tests.tests_dog_api.lib.assertions import Assertions
-from tests.tests_dog_api.lib.constants import Constants
-from tests.tests_dog_api.lib.my_requests import MyRequests
+from tests_api.tests_dog_api.lib.assertions import Assertions
+from tests_api.tests_dog_api.lib.constants import Constants
+from tests_api.tests_dog_api.lib.my_requests import MyRequests
 
 
 def test_get_list_all_breeds(base_url):
