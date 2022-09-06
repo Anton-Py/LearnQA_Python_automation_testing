@@ -2,12 +2,19 @@ import random
 import string
 
 
+def create_random_int():
+    return random.randint(100, 999)
+
+
+def random_string(self, num=1):
+    letters = string.ascii_lowercase
+    rand_string = ''.join(random.choice(letters) for _ in range(num))
+    return rand_string
+
+
 def random_email():
     domains = ['ru', 'com', 'de']
     names = ['round', 'texas', 'kent']
-
-    def create_random_int():
-        return random.randint(100, 999)
 
     def create_random_words():
         return "".join(random.choice(string.ascii_letters) for _ in range(2))

@@ -29,8 +29,6 @@ def test_list_grop(driver):
 
 def test_check_switchdis_to_group(driver):
     elements = test_list_grop(driver)
-    # for i in pages[7:]:
-    #     print(i.get_attribute("textContent"))
     random_group = random.choice(elements[7:])
     text_random_group = random_group.get_attribute("textContent")
     random_group.click()

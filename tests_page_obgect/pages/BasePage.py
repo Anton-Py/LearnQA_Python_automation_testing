@@ -27,6 +27,9 @@ class BasePage:
     def element_in_element(self, parent_locator: tuple, child_locator: tuple):
         return self.element(parent_locator).find_element(*child_locator)
 
+    def elements_in_element(self, parent_locator: tuple, child_locator: tuple):
+        return self.element(parent_locator).find_elements(*child_locator)
+
     def check_element(self, locator):
         return self.element(locator)
 
