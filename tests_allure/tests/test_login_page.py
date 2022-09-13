@@ -3,7 +3,7 @@ from tests_allure.pages.LoginPage import LoginPage
 import pytest
 import allure
 
-TEST_CASE_LINK = 'http://localhost/'
+TEST_CASE_LINK = 'https://hub.docker.com/r/bitnami/opencart'
 
 
 @allure.title('logging to system')
@@ -21,33 +21,13 @@ def test_login_page(browser, coll_cards, coll_elements_menu):
     page.check_button_logout()
     assert browser.title == LoginForPage.TITLE_SUCCESS
 
-# def test_failure():
-#     """this test fails"""
-#     assert 1  # -> AssertionError
-#
-#
-# def test_failure2():
-#     """this test fails"""
-#     assert 0  # -> AssertionError
-#
-#
-# @pytest.mark.skip(reason="Broken")
-# def test_skip():
-#     """this test is skipped"""
-#     pytest.skip('for a reason!')
-#
-#
-# @allure.link('https://docs.qameta.io/allure/#_pytest')
-# def test_with_link():
-#     pass
-#
-#
-# @allure.link('https://docs.qameta.io/allure/#_pytest', name='I am custom link name')
-# def test_with_named_link():
-#     pass
-#
-#
-# @pytest.mark.skip(reason="JIRA-9000")
-# @allure.issue('https://pytest.org', 'Pytest-flaky test retries shows like test steps')
-# def test_with_issue_link():
-#     assert False
+
+@pytest.mark.parametrize('user, password', [(LoginForPage.USERNAME, LoginForPage.INCORRECT_PASSWORD),
+                                            (LoginForPage.INCORRECT_USERNAME, LoginForPage.PASSWORD)])
+def test_login_page_with_incorrect_data(browser, user, password):
+    page = LoginPage(browser)
+    page.open()
+    assert len(page.coll()) == 2
+    page.check_element_password()
+    page.login_with_incorrect_data(user, password)
+    page.check_element_alert()

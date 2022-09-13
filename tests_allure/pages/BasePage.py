@@ -3,6 +3,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 import logging
+import pytest
+import allure
 
 
 class BasePage:
@@ -22,22 +24,26 @@ class BasePage:
         self.logger.info("Find visibility element: {}".format(locator))
         try:
             return WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator))
-        except TimeoutException:
-            raise AssertionError(f"Can't find element by locator {locator}")
+        except TimeoutException as e:
+            allure.attach(body=self.driver.get_screenshot_as_png(),
+                          name="screenshot_image")
+            raise AssertionError(f"Can't find element by locator {locator}", e.msg)
 
     def elements(self, locator: tuple, time=0.1):
         self.logger.info("Find visibility elements: {}".format(locator))
         try:
             return WebDriverWait(self.driver, time).until(EC.visibility_of_all_elements_located(locator))
-        except TimeoutException:
-            raise AssertionError(f"Can't find element by locator {locator}")
+        except TimeoutException as e:
+            allure.attach(body=self.driver.get_screenshot_as_png(),
+                          name="screenshot_image")
+            raise AssertionError(f"Can't find element by locator {locator}", e.msg)
 
     def elements_pr(self, locator: tuple, time=0.1):
         self.logger.info("Find presence element: {}".format(locator))
         try:
             return WebDriverWait(self.driver, time).until(EC.presence_of_all_elements_located(locator))
-        except TimeoutException:
-            raise AssertionError(f"Can't find element by locator {locator}")
+        except TimeoutException as e:
+            raise AssertionError(f"Can't find element by locator {locator}", e.msg)
 
     def element_in_element(self, parent_locator: tuple, child_locator: tuple):
         self.logger.info(

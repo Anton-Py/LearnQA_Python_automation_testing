@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class LoginForPage:
     TITLE_LOGIN_PAGE = "Administration"
-    ELEMENT_MENU = (By.CSS_SELECTOR, '#menu')
+    ELEMENT_MENU = (By.CSS_SELECTOR, '#menu1')
     ELEM_IN_MENU = (By.CSS_SELECTOR, '#menu > li')
     BUTTON_LOGOUT = (By.CSS_SELECTOR, '.navbar-right .fa-sign-out')
     SELECTOR_FIELD = (By.CSS_SELECTOR, '[class="input-group"]')
@@ -14,3 +14,6 @@ class LoginForPage:
     BUTTON_LOGIN = (By.CSS_SELECTOR, '[type="submit"]')
     FORGOTTEN_LINK = (By.CSS_SELECTOR, '[class="help-block"]')
     TITLE_SUCCESS = 'Dashboard'
+    INCORRECT_USERNAME = "test_user"
+    INCORRECT_PASSWORD = "test_bitnami"
+    ALERT_MESSAGE = (By.CSS_SELECTOR, '[class="alert alert-danger alert-dismissible"]')
