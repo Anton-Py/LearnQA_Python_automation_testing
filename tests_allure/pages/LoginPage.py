@@ -1,11 +1,12 @@
-from tests_page_obgect.tests.lib.constant_login_page import LoginForPage
-from tests_page_obgect.pages.BasePage import BasePage
+from tests_allure.tests.lib.constant_login_page import LoginForPage
+from tests_allure.pages.BasePage import BasePage
 
 
 class LoginPage(BasePage):
     path = "/admin"
 
     def open(self):
+        self.logger.info("Opening url: {}".format(self.base_url + self.path))
         self.driver.get(self.base_url + self.path)
 
     def coll(self):

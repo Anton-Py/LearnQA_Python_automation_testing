@@ -1,10 +1,11 @@
-from tests_page_obgect.tests.lib.constant_card_product import CardForProduct
-from tests_page_obgect.pages.BasePage import BasePage
+from tests_allure.tests.lib.constant_card_product import CardForProduct
+from tests_allure.pages.BasePage import BasePage
 
 
 class CardProduct(BasePage):
 
     def open(self):
+        self.logger.info("Opening url: {}".format(self.base_url))
         self.driver.get(self.base_url)
 
     def check_element_button(self):

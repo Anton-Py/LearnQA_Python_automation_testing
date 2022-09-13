@@ -1,6 +1,6 @@
 import time
-from tests_page_obgect.tests.lib.constant_delete_product_page import DeleteForProductPage
-from tests_page_obgect.pages.BasePage import BasePage
+from tests_allure.tests.lib.constant_delete_product_page import DeleteForProductPage
+from tests_allure.pages.BasePage import BasePage
 
 
 class DeleteProductPage(BasePage):

@@ -1,9 +1,9 @@
-from tests_page_obgect.pages.BasePage import BasePage
-from tests_page_obgect.helpers import random_email, create_random_int, random_string
+from tests_allure.pages.BasePage import BasePage
+from tests_allure.helpers import random_email, create_random_int, random_string
 import string
 import random
 
-from tests_page_obgect.tests.lib.constant_register_page import RegisterForPage
+from tests_allure.tests.lib.constant_register_page import RegisterForPage
 
 
 class RegisterPage(BasePage):
