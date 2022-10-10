@@ -3,6 +3,7 @@ import pytest
 import allure
 
 
+@allure.title('Checking the main page')
 @pytest.mark.parametrize('coll_elements_navbar_tabs', [8, 9], ids=['Истина', 'Ложь'])
 def test_main_page(browser, coll_elements_navbar_tabs):
     page = MainPage(browser)

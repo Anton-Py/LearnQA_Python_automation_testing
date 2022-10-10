@@ -21,7 +21,7 @@ class BasePage:
         self.logger.setLevel(level=self.driver.log_level)
 
     def element(self, locator: tuple, time=0.1, ):
-        self.logger.info("Find visibility element: {}".format(locator))
+        self.logger.debug("Find visibility element: {}".format(locator))
         try:
             return WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator))
         except TimeoutException as e:
@@ -56,24 +56,24 @@ class BasePage:
         return self.element(parent_locator).find_elements(*child_locator)
 
     def check_element(self, locator):
-        self.logger.info("Clicking element: {}".format(locator))
+        self.logger.debug("Clicking element: {}".format(locator))
         return self.element(locator)
 
     def coll_elements(self, locator):
-        self.logger.info("Click to search multiple items: {}".format(locator))
+        self.logger.warning("Click to search multiple items: {}".format(locator))
         return self.elements(locator)
 
     def _click(self, element):
-        self.logger.info("Click element: {}".format(element))
+        self.logger.warning("Click element: {}".format(element))
         ActionChains(self.driver).move_to_element(element).pause(0.3).click().perform()
 
     def check_alert(self):
-        self.logger.info("Check browser pop-up")
+        self.logger.warning("Check browser pop-up")
         alert = WebDriverWait(self.driver, 2).until(EC.alert_is_present())
         alert.accept()
 
     def _input(self, element, value):
-        self.logger.info("Enter data into input: element = {}, value = {}".format(element, value))
+        self.logger.warning("Enter data into input: element = {}, value = {}".format(element, value))
         self._click(element)
         element.clear()
         element.send_keys(value)

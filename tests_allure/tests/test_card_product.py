@@ -1,7 +1,9 @@
 from tests_allure.tests.lib.constant_card_product import CardForProduct
 from tests_allure.pages.CardProduct import CardProduct
+import allure
 
 
+@allure.title('Adding a new card')
 def test_main_page(browser):
     page = CardProduct(browser)
     page.open()

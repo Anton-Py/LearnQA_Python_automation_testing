@@ -1,7 +1,9 @@
 from tests_allure.pages.CheckCurrencyPage import CheckCurrency
 from tests_allure.pages.MainPage import MainPage
+import allure
 
 
+@allure.title('Checking the currency on the page')
 def test_currency(browser):
     page_check = CheckCurrency(browser)
     page_mane = MainPage(browser)

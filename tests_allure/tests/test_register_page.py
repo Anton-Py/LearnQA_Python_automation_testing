@@ -1,6 +1,8 @@
 from tests_allure.pages.RegisterPage import *
+import allure
 
 
+@allure.title('Registration Page')
 def test_page_register(browser):
     page = RegisterPage(browser)
     page.open()

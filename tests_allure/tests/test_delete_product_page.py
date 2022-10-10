@@ -1,8 +1,10 @@
 from tests_allure.pages.AddProductPage import AddProductPage
 from tests_allure.pages.DeleteProductPage import DeleteProductPage
 from tests_allure.pages.LoginPage import LoginPage
+import allure
 
 
+@allure.title('Delete a product on a page')
 def test_delete_page(browser):
     page_log = LoginPage(browser)
     page_add = AddProductPage(browser)

@@ -2,8 +2,10 @@ import time
 import random
 from tests_allure.pages.CatalogPage import CatalogPage
 from tests_allure.tests.lib.constant_catalog_page import CatalogForPage
+import allure
 
 
+@allure.title('Checking the catalog page')
 def test_main_page(browser):
     page = CatalogPage(browser)
     page.open()
