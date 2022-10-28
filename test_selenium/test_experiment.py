@@ -68,8 +68,8 @@ import random, string
 #     print(f"{random.choice(['king','miller','kean'])}.{random.randint(100,999)}@{''.join(random.choice(string.ascii_letters + string.digits) for _ in range(5,7+1))}.{random.choice(['net','com','ua'])}")
 
 
-def test(driver):
-    driver.get(url="http://localhost/")
+def test(browser):
+    browser.get(url="http://localhost/")
     time.sleep(5)
-    print(driver.find_element(By.CSS_SELECTOR, '.navbar-nav>li:nth-child(1)'))
-    print(driver.find_elements(By.CSS_SELECTOR, '.navbar-nav>li'))
+    print(browser.find_element(By.CSS_SELECTOR, '.navbar-nav>li:nth-child(1)'))
+    print(browser.find_elements(By.CSS_SELECTOR, '.navbar-nav>li'))

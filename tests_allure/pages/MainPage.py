@@ -1,5 +1,5 @@
-from tests_page_obgect.tests.lib.constant_main_page import MainForPage
-from tests_page_obgect.pages.BasePage import BasePage
+from tests_allure.tests.lib.constant_main_page import MainForPage
+from tests_allure.pages.BasePage import BasePage
 
 
 class MainPage(BasePage):
